@@ -6,8 +6,6 @@ Authors@R:
 Description: This is a stub package that shows how to link to and import
     from RcppTskit package, which provides R access to tskit C API.
 License: MIT + file LICENSE
-Imports:
-    RcppTskit
 LinkingTo:
     RcppTskit
 Remotes:

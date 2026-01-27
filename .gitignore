@@ -5,3 +5,11 @@
 .httr-oauth
 .DS_Store
 .quarto
+src/Makevars
+src/Makevars.in
+.gitignore
+src/RcppTskitTestLinking.so
+src/test.o
+.gitignore
+src/Makevars.in
+src/RcppExports.o

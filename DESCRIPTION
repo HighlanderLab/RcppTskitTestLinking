@@ -1,13 +1,19 @@
-Package: RcppTskitTestPkgLinkingTo
+Package: RcppTskitTestLinking
 Title: Testing linking to and importing from RcppTskit
 Version: 0.1.0
 Authors@R:
     person("Gregor", "Gorjanc", , "gregor.gorjanc@gmail.com", role = c("aut", "cre", "cph"))
-Description: This is a stub package that shows how to link to and import
+Description: This is a demo package that shows how to link to and import
     from RcppTskit package, which provides R access to tskit C API.
 License: MIT + file LICENSE
+Depends:
+    R (>= 4.0.0)
+Imports:
+    methods,
+    RcppTskit (>= 0.1.0)
 LinkingTo:
-    RcppTskit
+    Rcpp (>= 0.12.10),
+    RcppTskit (>= 0.1.0)
 Remotes:
     git::git@bitbucket.org:HighlanderLab/RcppTskit.git?subdir=RcppTskit
 Encoding: UTF-8

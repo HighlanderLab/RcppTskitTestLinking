@@ -1,4 +1,4 @@
-#include <tskit.h>
+#include <RcppTskit.h>
 // [[Rcpp::depends(RcppTskit)]]
 // [[Rcpp::plugins(RcppTskit)]]
 
@@ -8,7 +8,7 @@
 //' @examples
 //' ts_file <- system.file("examples", "test.trees", package = "RcppTskit")
 //' ts <- RcppTskit::ts_load(ts_file)
-//' RcppTskit::ts$num_individuals()
+//' ts$num_individuals()
 //' ts_num_individuals_ptr2(ts$pointer)
 //' @export
 // [[Rcpp::export]]

@@ -1,4 +1,4 @@
-#include <RcppTskit.h>
+#include <RcppTskit.hpp>
 // [[Rcpp::depends(RcppTskit)]]
 // [[Rcpp::plugins(RcppTskit)]]
 

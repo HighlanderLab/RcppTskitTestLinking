@@ -9,6 +9,19 @@ findRcppTskitLib <- function() {
     stop("Unable to locate the RcppTskit shared library directory!")
   }
 
+  libdirs <- libdir
+  if (.Platform$OS.type == "windows") {
+    r_arch <- sub("^/", "", .Platform$r_arch)
+    if (nzchar(r_arch)) {
+      libdirs <- c(libdirs, file.path(libdir, r_arch))
+    } else {
+      arch_dirs <- c("x64", "i386")
+      arch_dirs <- arch_dirs[dir.exists(file.path(libdir, arch_dirs))]
+      libdirs <- c(libdirs, file.path(libdir, arch_dirs))
+    }
+    libdirs <- unique(libdirs)
+  }
+
   if (.Platform$OS.type == "unix") {
     candidates <- c(
       "RcppTskit.so", # Unix/Linux
@@ -23,16 +36,33 @@ findRcppTskitLib <- function() {
   } else {
     stop("Unknown .Platform$OS.type!")
   }
-  libpaths <- file.path(libdir, candidates)
+  libpaths <- unlist(
+    lapply(libdirs, function(dir) file.path(dir, candidates)),
+    use.names = FALSE
+  )
   libfile <- libpaths[file.exists(libpaths)][1]
-  if (length(libfile) < 1) {
-    stop("Unable to locate the RcppTskit library file in ", libdir, "!")
+  if (is.na(libfile) || !nzchar(libfile)) {
+    stop(
+      "Unable to locate the RcppTskit library file in ",
+      paste(libdirs, collapse = ", "),
+      "!"
+    )
   }
 
-  # TODO: there were lots of trials to make the below work on macOS, so I
-  #       assume we will need Linux & Windows specific flags as well!?
-  # Embed rpath so the runtime loader can find RcppTskit.so.
-  ret <- sprintf("-Wl,-rpath,%s %s", shQuote(libdir), shQuote(libfile))
+  if (.Platform$OS.type == "unix") {
+    # Unix/Linux/macOS
+    # Embed rpath on so the runtime loader can find RcppTskit.so.
+    ret <- sprintf(
+      "-Wl,-rpath,%s %s",
+      shQuote(dirname(libfile)),
+      shQuote(libfile)
+    )
+  } else if (.Platform$OS.type == "windows") {
+    # Windows
+    ret <- shQuote(libfile)
+  } else {
+    stop("Unknown .Platform$OS.type!")
+  }
   return(ret)
 }
 
@@ -62,12 +92,14 @@ if (.Platform$OS.type == "unix") {
     template = "src/Makevars.in",
     output = "src/Makevars"
   )
-} else {
+} else if (.Platform$OS.type == "windows") {
   # readLines(con = "src/Makevars.win.in")
   success <- renderMakevars(
     template = "src/Makevars.win.in",
     output = "src/Makevars.win"
   )
+} else {
+  stop("Unknown .Platform$OS.type!")
 }
 if (!success) {
   stop("renderMakevars() failed!")

@@ -4,6 +4,10 @@
 This is a demo package that shows how to link to and import from RcppTskit
 package, which provides R access to tskit C API.
 
+[![R universe R CMD checks](https://highlanderlab.r-universe.dev/RcppTskit/badges/checks)](https://highlanderlab.r-universe.dev/RcppTskit)
+
+[![GitHub R CMD checks](https://img.shields.io/github/actions/workflow/status/HighlanderLab/RcppTskit/R-CMD-check.yaml?label=GitHub%20R%20CMD%20check)](https://github.com/HighlanderLab/RcppTskit/actions/workflows/R-CMD-check.yaml)
+
 ## Key files
 
 The key files you should study are:

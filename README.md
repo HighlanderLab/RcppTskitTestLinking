@@ -1,8 +1,8 @@
 
 # RcppTskitTestLinking
 
-This is a demo package that shows how to link to and import from RcppTskit
-package, which provides R access to tskit C API.
+This is a demo package that shows how to link to and import from `RcppTskit`
+package, which provides `R` access to `tskit C` API.
 
 R CMD checks: [![R universe](https://highlanderlab.r-universe.dev/RcppTskitTestLinking/badges/checks?label=R-universe)](https://highlanderlab.r-universe.dev/RcppTskitTestLinking) <!-- Col-1-End -->
 [![GitHub](https://img.shields.io/github/actions/workflow/status/HighlanderLab/RcppTskitTestLinking/R-CMD-check.yaml?label=GitHub)](https://github.com/HighlanderLab/RcppTskitTestLinking/actions/workflows/R-CMD-check.yaml)
@@ -57,12 +57,12 @@ Below we mark it up to explain what is what.
 Object of class 'TreeSequence'
 $ts
          property            value
-1     num_samples              160
-2 sequence_length            10000
-3       num_trees               26
+1     num_samples               16
+2 sequence_length              100
+3       num_trees                9
 4      time_units      generations
 5        min_time                0
-6        max_time 7.47028168974859
+6        max_time 6.96199333719081
 7    has_metadata            FALSE
 
 $tables
@@ -70,17 +70,17 @@ $tables
 1 provenances      2           NA
 2 populations      1         TRUE
 3  migrations      0        FALSE
-4 individuals     80        FALSE
-5       nodes    344        FALSE
-6       edges    414        FALSE
-7       sites   2376        FALSE
-8   mutations   2700        FALSE
+4 individuals      8        FALSE
+5       nodes     39        FALSE
+6       edges     59        FALSE
+7       sites     25        FALSE
+8   mutations     30        FALSE
 
-# Note that we have 80 individuals in ts
+# Note that we have 8 individuals in ts
 
 # We can obtain the same number by running
 > ts$num_individuals()
-[1] 80
+[1] 8
 
 # This demo package implemented the same function
 # that is available in RcppTskit, but since we here
@@ -88,7 +88,7 @@ $tables
 # pointer object (externalptr) `ts$pointer` and
 # not with the tree sequence object (TreeSequence) `ts`
 > ts_num_individuals_ptr2(ts$pointer)
-[1] 80
+[1] 8
 ```
 
 ## Wrap up
@@ -97,7 +97,6 @@ Hopefully this demo package shows you sufficiently well on how
 to leverage `RcppTskit` for your package.
 
 If we develop any methods that should work on
-the tree sequence object (`TreeSequence`),
-then the methods could go into `RcppTskit::TreeSequence` or
-new packages could inherit from this class and add their
-methods.
+the tree sequence object (`TreeSequence`) or the table collection object (`TableCollection`),
+then the methods could go into `RcppTskit::TreeSequence` or `RcppTskit::TableCollection`
+or new packages could inherit from this class and add their methods.

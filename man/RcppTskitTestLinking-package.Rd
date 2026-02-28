@@ -4,7 +4,7 @@
 \name{RcppTskitTestLinking-package}
 \alias{RcppTskitTestLinking}
 \alias{RcppTskitTestLinking-package}
-\title{RcppTskitTestLinking: Testing linking to and importing from RcppTskit}
+\title{RcppTskitTestLinking: Testing linking to and importing from 'RcppTskit'}
 \description{
 This is a demo package that shows how to link to and import from RcppTskit
 package, which provides R access to tskit C API.

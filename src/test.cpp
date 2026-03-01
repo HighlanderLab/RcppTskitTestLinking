@@ -9,10 +9,10 @@
 //' ts_file <- system.file("examples", "test.trees", package = "RcppTskit")
 //' ts <- RcppTskit::ts_load(ts_file)
 //' ts$num_individuals()
-//' ts_num_individuals_ptr2(ts$pointer)
+//' ts_xptr_num_individuals2(ts$pointer)
 //' @export
 // [[Rcpp::export]]
-int ts_num_individuals_ptr2(const SEXP ts) {
+int ts_xptr_num_individuals2(const SEXP ts) {
   RcppTskit_treeseq_xptr ts_xptr(ts);
   return static_cast<int>(tsk_treeseq_get_num_individuals(ts_xptr));
 }

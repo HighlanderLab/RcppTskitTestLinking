@@ -8,9 +8,9 @@
 #' ts_file <- system.file("examples", "test.trees", package = "RcppTskit")
 #' ts <- RcppTskit::ts_load(ts_file)
 #' ts$num_individuals()
-#' ts_num_individuals_ptr2(ts$pointer)
+#' ts_xptr_num_individuals2(ts$pointer)
 #' @export
-ts_num_individuals_ptr2 <- function(ts) {
-    .Call(`_RcppTskitTestLinking_ts_num_individuals_ptr2`, ts)
+ts_xptr_num_individuals2 <- function(ts) {
+    .Call(`_RcppTskitTestLinking_ts_xptr_num_individuals2`, ts)
 }
 

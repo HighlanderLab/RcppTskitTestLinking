@@ -10,20 +10,20 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// ts_num_individuals_ptr2
-int ts_num_individuals_ptr2(const SEXP ts);
-RcppExport SEXP _RcppTskitTestLinking_ts_num_individuals_ptr2(SEXP tsSEXP) {
+// ts_xptr_num_individuals2
+int ts_xptr_num_individuals2(const SEXP ts);
+RcppExport SEXP _RcppTskitTestLinking_ts_xptr_num_individuals2(SEXP tsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const SEXP >::type ts(tsSEXP);
-    rcpp_result_gen = Rcpp::wrap(ts_num_individuals_ptr2(ts));
+    rcpp_result_gen = Rcpp::wrap(ts_xptr_num_individuals2(ts));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_RcppTskitTestLinking_ts_num_individuals_ptr2", (DL_FUNC) &_RcppTskitTestLinking_ts_num_individuals_ptr2, 1},
+    {"_RcppTskitTestLinking_ts_xptr_num_individuals2", (DL_FUNC) &_RcppTskitTestLinking_ts_xptr_num_individuals2, 1},
     {NULL, NULL, 0}
 };
 

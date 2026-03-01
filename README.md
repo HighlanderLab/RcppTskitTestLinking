@@ -37,7 +37,7 @@ remotes::install_github("HighlanderLab/RcppTskitTestLinking")
 library(RcppTskitTestLinking)
 
 # Check the help page for one implemented function
-?ts_num_individuals_ptr2
+?ts_xptr_num_individuals2
 ```
 
 Now run the example from the help page.
@@ -87,7 +87,7 @@ $tables
 # focus just on C++ code, we have to work with the
 # pointer object (externalptr) `ts$pointer` and
 # not with the tree sequence object (TreeSequence) `ts`
-> ts_num_individuals_ptr2(ts$pointer)
+> ts_xptr_num_individuals2(ts$pointer)
 [1] 8
 ```
 

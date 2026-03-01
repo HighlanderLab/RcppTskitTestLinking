@@ -10,10 +10,10 @@ Depends:
     R (>= 4.0.0)
 Imports:
     methods,
-    RcppTskit (>= 0.2.0)
+    RcppTskit (>= 0.3.0)
 LinkingTo:
     Rcpp (>= 0.12.10),
-    RcppTskit (>= 0.2.0)
+    RcppTskit (>= 0.3.0)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3

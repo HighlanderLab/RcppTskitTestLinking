@@ -14,3 +14,19 @@ ts_xptr_num_individuals2 <- function(ts) {
     .Call(`_RcppTskitTestLinking_ts_xptr_num_individuals2`, ts)
 }
 
+#' @title Summarise `tskit` table collection
+#' @param tc an external pointer to a \code{tsk_table_collection_t} object.
+#' @return A list.
+#' @examples
+#' ts_file <- system.file("examples", "test.trees", package = "RcppTskit")
+#' tc <- RcppTskit:::tc_xptr_load(ts_file)
+#' RcppTskit:::tc_xptr_summary(tc)
+#' tc_xptr_summary2(tc) # a bit simpler at this stage ...
+#' tc <- RcppTskit::TableCollection$new(ts_file)
+#' RcppTskit:::tc_xptr_summary(tc$pointer)
+#' tc_xptr_summary2(tc$pointer) # a bit simpler at this stage ...
+#' @export
+tc_xptr_summary2 <- function(tc) {
+    .Call(`_RcppTskitTestLinking_tc_xptr_summary2`, tc)
+}
+

@@ -21,9 +21,21 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// tc_xptr_summary2
+Rcpp::List tc_xptr_summary2(const SEXP tc);
+RcppExport SEXP _RcppTskitTestLinking_tc_xptr_summary2(SEXP tcSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const SEXP >::type tc(tcSEXP);
+    rcpp_result_gen = Rcpp::wrap(tc_xptr_summary2(tc));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_RcppTskitTestLinking_ts_xptr_num_individuals2", (DL_FUNC) &_RcppTskitTestLinking_ts_xptr_num_individuals2, 1},
+    {"_RcppTskitTestLinking_tc_xptr_summary2", (DL_FUNC) &_RcppTskitTestLinking_tc_xptr_summary2, 1},
     {NULL, NULL, 0}
 };
 

@@ -21,9 +21,6 @@ rtsk_treeseq_get_num_individuals2 <- function(ts) {
 #' @examples
 #' ts_file <- system.file("examples", "test.trees", package = "RcppTskit")
 #' tc <- RcppTskit:::tc_load(ts_file)
-#' RcppTskit:::rtsk_table_collection_summary(tc)
-#' rtsk_table_collection_summary(tc)
-#' tc <- RcppTskit::TableCollection$new(ts_file)
 #' RcppTskit:::rtsk_table_collection_summary(tc$xptr)
 #' rtsk_table_collection_summary2(tc$xptr)
 #' @export

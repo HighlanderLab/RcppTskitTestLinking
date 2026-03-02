@@ -8,10 +8,11 @@
 #' ts_file <- system.file("examples", "test.trees", package = "RcppTskit")
 #' ts <- RcppTskit::ts_load(ts_file)
 #' ts$num_individuals()
-#' ts_xptr_num_individuals2(ts$pointer)
+#' RcppTskit:::rtsk_treeseq_get_num_individuals(ts$xptr)
+#' rtsk_treeseq_get_num_individuals2(ts$xptr)
 #' @export
-ts_xptr_num_individuals2 <- function(ts) {
-    .Call(`_RcppTskitTestLinking_ts_xptr_num_individuals2`, ts)
+rtsk_treeseq_get_num_individuals2 <- function(ts) {
+    .Call(`_RcppTskitTestLinking_rtsk_treeseq_get_num_individuals2`, ts)
 }
 
 #' @title Summarise `tskit` table collection
@@ -19,14 +20,14 @@ ts_xptr_num_individuals2 <- function(ts) {
 #' @return A list.
 #' @examples
 #' ts_file <- system.file("examples", "test.trees", package = "RcppTskit")
-#' tc <- RcppTskit:::tc_xptr_load(ts_file)
-#' RcppTskit:::tc_xptr_summary(tc)
-#' tc_xptr_summary2(tc) # a bit simpler at this stage ...
+#' tc <- RcppTskit:::tc_load(ts_file)
+#' RcppTskit:::rtsk_table_collection_summary(tc)
+#' rtsk_table_collection_summary(tc)
 #' tc <- RcppTskit::TableCollection$new(ts_file)
-#' RcppTskit:::tc_xptr_summary(tc$pointer)
-#' tc_xptr_summary2(tc$pointer) # a bit simpler at this stage ...
+#' RcppTskit:::rtsk_table_collection_summary(tc$xptr)
+#' rtsk_table_collection_summary2(tc$xptr)
 #' @export
-tc_xptr_summary2 <- function(tc) {
-    .Call(`_RcppTskitTestLinking_tc_xptr_summary2`, tc)
+rtsk_table_collection_summary2 <- function(tc) {
+    .Call(`_RcppTskitTestLinking_rtsk_table_collection_summary2`, tc)
 }
 

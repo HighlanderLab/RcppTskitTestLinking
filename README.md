@@ -85,11 +85,15 @@ $tables
 # This demo package implemented the same function
 # that is available in RcppTskit, but since we here
 # focus just on C++ code, we have to work with the
-# pointer object (externalptr) `ts$pointer` and
+# pointer object (externalptr) `ts$xptr` and
 # not with the tree sequence object (TreeSequence) `ts`
-> ts_xptr_num_individuals2(ts$pointer)
+> RcppTskit:::rtsk_treeseq_get_num_individuals(ts$xptr)
+[1] 8
+> rtsk_treeseq_get_num_individuals2(ts$xptr)
 [1] 8
 ```
+
+See also
 
 ## Wrap up
 
